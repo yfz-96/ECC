@@ -1,0 +1,11 @@
+x
+s__Tannerella_sp._ASV_4823
+g__Fusobacterium_ASV_9466
+g__Leptotrichia_ASV_11092
+s__Capnocytophaga_granulosa_ASV_5726
+g__Actinomyces_ASV_7424
+g__Rothia_ASV_6118
+g__Rothia_ASV_6951
+s__Corynebacterium_durum_ASV_7597
+s__Corynebacterium_durum_ASV_7629
+s__Neisseria_elongata_ASV_15591
