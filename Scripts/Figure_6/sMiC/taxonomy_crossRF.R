@@ -1167,7 +1167,7 @@ plot <- ggroc(rocobj,
               size=1,
               legacy.axes = F # FALSE时 横坐标为1-0 specificity；TRUE时 横坐标为0-1 1-specificity
 ) +
-  geom_point(aes(x = best_specificity, y = best_sensitivity), color="blue") +
+  # geom_point(aes(x = best_specificity, y = best_sensitivity), color="blue") +
   # geom_text(aes(x = best_specificity, y = best_sensitivity, 
   #               label = paste0("Cutoff:", round(best_cutoff, 3), 
   #                              "\nSensitivity:", round(best_sensitivity, 2), 
