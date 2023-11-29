@@ -144,14 +144,12 @@ if(AddTaxonomy==TRUE){
 library("dplyr")
 wilcox_res<-wilcox_res %>% dplyr::group_by(dataset) %>% mutate(rf_imps_rank=rank(-rf_imps, na.last = "keep"))
 
-
 ## RF classification performance VS number of features used
 # Prediction performances at increasing number of features obtained by 
 # retraining the random forest regressor on the top-ranking features identified 
 # with a first random forest model training in a cross-validation setting
 top_n_perf_list<-list()
 for(n in 1:length(rf_clf_res$rf_model_list)){
-  
   rf_imps<-rf_clf_res$feature_imps_list[[n]][, "rf_imps"]
   rf_imps_rank<-rank(-rf_imps, na.last = "keep")
   x<-rf_clf_res$x_list[[n]]
