@@ -38,7 +38,7 @@ glogfc_plot <- ggplot(glogfc, aes(variable, Taxon, fill = value)) +
   geom_tile() +
   scale_fill_gradient2(low = "blue", high = "red", mid = "gray") +
   #scale_fill_gradient(low="#EFEFFF", high="blue") +  
-  labs(fill = "ConfidentH\nVS\nCaries\ngeneralized\nlog2(fold change)") +
+  labs(fill = "Caries\nVS\nConfidentH\ngeneralized\nlog2(fold change)") +
   xlab("Tooth position") + 
   ylab("ASV") + 
   theme_bw() + 
@@ -52,4 +52,32 @@ glogfc_plot <- ggplot(glogfc, aes(variable, Taxon, fill = value)) +
         panel.grid.major = element_blank(),
         panel.grid.minor = element_blank(),
         panel.background = element_blank())
-ggsave(filename="../../Results/Figure_8/generalized_log2_fold_change/top32_glogfc.pdf", plot=glogfc_plot, width=10, height=10)
+ggsave(filename="../../Results/Figure_8/generalized_log2_fold_change/HHCC_top32_glogfc.pdf", plot=glogfc_plot, width=10, height=10)
+
+HHRH_glogfc <- read.table("../../Results/Figure_8/generalized_log2_fold_change/HHRH_generalized_logfc_by_datasets.txt",
+                     sep = "\t", header = T, row.names = 1)
+HHRH_glogfc <- subset(HHRH_glogfc, rownames(HHRH_glogfc) %in% top_32_features$feature)
+HHRH_glogfc$feature <- rownames(HHRH_glogfc)
+HHRH_glogfc <- melt(HHRH_glogfc)
+HHRH_glogfc$Taxon <- Taxonomy[HHRH_glogfc$feature, "Taxon"]
+
+HHRH_glogfc_plot <- ggplot(HHRH_glogfc, aes(variable, Taxon, fill = value)) +
+  geom_tile() +
+  scale_fill_gradient2(low = "blue", high = "red", mid = "gray") +
+  #scale_fill_gradient(low="#EFEFFF", high="blue") +  
+  labs(fill = "RelativeH\nVS\nConfidentH\ngeneralized\nlog2(fold change)") +
+  xlab("Tooth position") + 
+  ylab("ASV") + 
+  theme_bw() + 
+  theme(strip.text = element_text(size = 14),
+        legend.title = element_text(size = 14), 
+        legend.text = element_text(size = 14),
+        axis.title.x = element_text(size = 14),
+        axis.title.y = element_text(size = 14),
+        axis.text.x = element_text(size = 14, angle = 45, hjust = 1, vjust = 1),
+        axis.text.y = element_text(size = 14),
+        panel.grid.major = element_blank(),
+        panel.grid.minor = element_blank(),
+        panel.background = element_blank())
+ggsave(filename="../../Results/Figure_8/generalized_log2_fold_change/HHCC_top32_HHRH_glogfc.pdf", plot=HHRH_glogfc_plot, width=10, height=10)
+

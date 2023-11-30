@@ -1105,7 +1105,7 @@ Row.names	dataset	y	pred_y	Caries	ConfidentH	Position2	Future_Status_Tooth
 139428.14341.S104	prediction	Caries	Caries	0.368	0.632	T65	Caries
 139428.14341.S11	prediction	C_H	Caries	0.262	0.738	T61	C_H
 139428.14341.S111	prediction	C_H	ConfidentH	0.442	0.558	T74	C_H
-139428.14341.S112	prediction	C_H	Caries	0.5	0.5	T74	C_H
+139428.14341.S112	prediction	C_H	ConfidentH	0.5	0.5	T74	C_H
 139428.14341.S113	prediction	C_H	ConfidentH	0.492	0.508	T75	C_H
 139428.14341.S114	prediction	Caries	ConfidentH	0.388	0.612	T75	Caries
 139428.14341.S12	prediction	C_H	Caries	0.23	0.77	T61	C_H
@@ -1170,7 +1170,7 @@ Row.names	dataset	y	pred_y	Caries	ConfidentH	Position2	Future_Status_Tooth
 139428.14341.S240	prediction	ConfidentH	ConfidentH	0.392	0.608	T75	ConfidentH
 139428.14341.S247	prediction	ConfidentH	Caries	0.542	0.458	T84	ConfidentH
 139428.14341.S248	prediction	ConfidentH	ConfidentH	0.436	0.564	T84	ConfidentH
-139428.14341.S253	prediction	C_H	Caries	0.5	0.5	T51	C_H
+139428.14341.S253	prediction	C_H	ConfidentH	0.5	0.5	T51	C_H
 139428.14341.S254	prediction	C_H	Caries	0.554	0.446	T51	C_H
 139428.14341.S259	prediction	C_H	Caries	0.302	0.698	T54	C_H
 139428.14341.S260	prediction	C_H	Caries	0.306	0.694	T54	C_H

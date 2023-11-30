@@ -37,7 +37,7 @@ glogfc_plot <- ggplot(glogfc, aes(variable, Taxon, fill = value)) +
   geom_tile() +
   scale_fill_gradient2(low = "blue", high = "red", mid = "gray") +
   #scale_fill_gradient(low="#EFEFFF", high="blue") +  
-  labs(fill = "ConfidentH\nVS\nCaries\ngeneralized\nlog2(fold change)") +
+  labs(fill = "Caries\nVS\nConfidentH\ngeneralized\nlog2(fold change)") +
   xlab("Tooth position") + 
   ylab("ASV") + 
   theme_bw() + 
@@ -51,4 +51,4 @@ glogfc_plot <- ggplot(glogfc, aes(variable, Taxon, fill = value)) +
         panel.grid.major = element_blank(),
         panel.grid.minor = element_blank(),
         panel.background = element_blank())
-ggsave(filename="../../Results/Figure_8/generalized_log2_fold_change_of_kos/top32_glogfc.pdf", plot=glogfc_plot, width=15, height=10)
+ggsave(filename="../../Results/Figure_8/generalized_log2_fold_change_of_kos/HHCC_top32_glogfc.pdf", plot=glogfc_plot, width=15, height=10)

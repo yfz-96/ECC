@@ -210,3 +210,35 @@ plot
 ggsave(filename=paste0(outpath, "/generalized_log2fold_change_of_status_related_kos_for_ECC_diagnosis.pdf"), 
        plot=plot, width=20, height=110, limitsize = F)
 
+
+
+# HHRH
+data_HHRH_list<-filter_samples_by_groups_in_target_field_of_metadata(data_list$data, data_list$metadata,
+                                                                     target_field = c_category, negate=FALSE,
+                                                                     groups = c("ConfidentH", "RelativeH"))
+
+g_logfc.by_datasets <- function(df, metadata, s_category, c_category, positive_class) {
+  y_list<-split(factor(metadata[, c_category]), factor(metadata[, s_category]))
+  x_list<-split(df, factor(metadata[, s_category]))
+  datasets<-levels(factor(metadata[, s_category]))
+  L<-length(y_list)
+  # 1. sample size of all datasets
+  sample_size<-as.numeric(table(factor(metadata[, s_category])))
+  nCores <- parallel::detectCores()
+  doMC::registerDoMC(nCores-4)
+  # comb function for parallelization using foreach
+  oper<-foreach(i=1:L, .combine='cbind', .multicombine=TRUE) %dopar% {
+    x<-x_list[[i]]
+    y<-factor(y_list[[i]])
+    # 2. generalized fold change
+    oob <- generalized_logfc(x, y,  positive_class = positive_class)
+    oob
+  }
+  colnames(oper) <- names(x_list)
+  return(oper)
+}
+
+g_logfc <- g_logfc.by_datasets(data_HHRH_list$data, data_HHRH_list$metadata, 
+                               s_category, c_category, positive_class = "RelativeH")
+write.table(g_logfc, paste0(outpath, "/HHRH_generalized_logfc_by_datasets.txt"),
+            sep = "\t", quote = F,row.names = T, col.names = NA)

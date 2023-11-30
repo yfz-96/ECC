@@ -681,10 +681,16 @@ sink(paste(outpath,"RF_pred_summ.xls",sep=""));write.table(all_comb,quote=FALSE,
 p <- ggplot(all_comb, aes(x=y, y=Caries)) + 
   geom_boxplot(outlier.shape = NA) + 
   geom_jitter(aes(color=y), position=position_jitterdodge(jitter.width= 0.2,dodge.width = 0.8),size=1,alpha=0.4) +
-  scale_colour_manual(values = viridis(4), name = "Future_Status_Tooth") +
+  scale_colour_manual(values = viridis(4), name = "Actual status of tooth") +
+  # geom_signif(comparisons = list(c("ConfidentH", "RelativeH"), c("ConfidentH", "C_H"),
+  #                                c("RelativeH", "C_H")),
+  #             map_signif_level = function(p) {if(p < 0.01) {p = "**"} else if(p < 0.05) {p = "*"} else {p = "NS"}},
+  #             test = "wilcox.test", textsize = 4, step_increase = 0.1,
+  #             test.args = list(exact = FALSE, correct = FALSE, conf.int = TRUE,
+  #                              conf.level = 0.95)) + # 添加wilcoxon test结果，并使不同分组的检验间隔0.01
   ylab("MiC")+ xlab("Actual status of tooth")+
   ylim(c(0, 1))+
-  geom_hline(yintercept=0.5, linetype="dashed")+
+  #geom_hline(yintercept=0.5, linetype="dashed")+
   theme_bw()+
   theme(axis.line = element_line(color = "black"),
         panel.grid.major = element_blank(),
@@ -707,7 +713,7 @@ ggsave(filename=paste(outpath,"Pred_in_",c_category,".boxplot.pdf",sep=""),plot=
 p<-ggplot(all_comb, aes(x=y, y=Caries)) + 
   geom_boxplot(outlier.shape = NA) + 
   geom_jitter(aes(color=y), position=position_jitterdodge(jitter.width= 0.2,dodge.width = 0.8),size=1,alpha=0.4) +
-  scale_colour_manual(values = viridis(4), name = "Future_Status_Tooth") +
+  scale_colour_manual(values = viridis(4), name = "Actual status of tooth") +
   ylab("MiC")+ xlab("Actual status of tooth")+
   ylim(c(0, 1))+
   geom_hline(yintercept=0.5, linetype="dashed")+
@@ -734,10 +740,10 @@ ggsave(filename=paste(outpath,"Pred_in_",c_category, "_among_", s_category,".fac
 p<-ggplot(all_comb, aes(x=y, y=Caries)) + 
   geom_boxplot(outlier.shape = NA) + 
   geom_jitter(aes(color=y), position=position_jitterdodge(jitter.width= 0.2,dodge.width = 0.8),size=1,alpha=0.4) +
-  scale_colour_manual(values = viridis(4), name = "Future_Status_Tooth") +
+  scale_colour_manual(values = viridis(4), name = "Actual status of tooth") +
   ylab("MiC")+ xlab("Actual status of tooth")+
   ylim(c(0, 1))+
-  geom_hline(yintercept=0.5, linetype="dashed")+
+  #geom_hline(yintercept=0.5, linetype="dashed")+
   facet_wrap(~Timepoint, nrow = 1)+
   theme_bw() +
   theme(axis.line = element_line(color = "black"),
@@ -761,7 +767,7 @@ ggsave(filename=paste(outpath,"Pred_in_",c_category, "_among_Timepoint.facets.bo
 p<-ggplot(all_comb, aes(x=y, y=Caries)) + 
   geom_boxplot(outlier.shape = NA) + 
   geom_jitter(aes(color=y), position=position_jitterdodge(jitter.width= 0.2,dodge.width = 0.8),size=1,alpha=0.4) +
-  scale_colour_manual(values = viridis(4), name = "Future_Status_Tooth") +
+  scale_colour_manual(values = viridis(4), name = "Actual status of tooth") +
   ylab("MiC")+ xlab("Actual status of tooth")+
   ylim(c(0, 1))+
   geom_hline(yintercept=0.5, linetype="dashed")+
@@ -788,7 +794,7 @@ ggsave(filename=paste(outpath,"Pred_in_",c_category, "_among_StatusHostChange.fa
 p<-ggplot(all_comb, aes(x=y, y=Caries)) + 
   geom_boxplot(outlier.shape = NA) + 
   geom_jitter(aes(color=y), position=position_jitterdodge(jitter.width= 0.2,dodge.width = 0.8),size=1,alpha=0.4) +
-  scale_colour_manual(values = viridis(4), name = "Future_Status_Tooth") +
+  scale_colour_manual(values = viridis(4), name = "Actual status of tooth") +
   ylab("MiC")+ xlab("Actual status of tooth")+
   ylim(c(0, 1))+
   geom_hline(yintercept=0.5, linetype="dashed")+
@@ -815,7 +821,7 @@ ggsave(filename=paste(outpath,"Pred_in_",c_category, "_among_StatusToothChange.f
 p<-ggplot(all_comb, aes(x=y, y=Caries)) + 
   geom_boxplot(outlier.shape = NA) + 
   geom_jitter(aes(color=y), position=position_jitterdodge(jitter.width= 0.2,dodge.width = 0.8),size=1,alpha=0.4) +
-  scale_colour_manual(values = viridis(4), name = "Future_Status_Tooth") +
+  scale_colour_manual(values = viridis(4), name = "Actual status of tooth") +
   ylab("MiC")+ xlab("Actual status of tooth")+
   ylim(c(0, 1))+
   geom_hline(yintercept=0.5, linetype="dashed")+
@@ -843,7 +849,7 @@ ggsave(filename=paste(outpath,"Pred_in_",c_category, "_among_StatusHostChange_Ti
 p<-ggplot(all_comb, aes(x=y, y=Caries)) + 
   geom_boxplot(outlier.shape = NA) + 
   geom_jitter(aes(color=y), position=position_jitterdodge(jitter.width= 0.2,dodge.width = 0.8),size=1,alpha=0.4) +
-  scale_colour_manual(values = viridis(4), name = "Future_Status_Tooth") +
+  scale_colour_manual(values = viridis(4), name = "Actual status of tooth") +
   ylab("MiC")+ xlab("Actual status of tooth")+
   ylim(c(0, 1))+
   geom_hline(yintercept=0.5, linetype="dashed")+

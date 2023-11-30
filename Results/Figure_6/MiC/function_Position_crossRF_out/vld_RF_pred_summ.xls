@@ -1344,7 +1344,7 @@ V3_22_24_T2	prediction	ConfidentH	Caries	0.408	0.592	T64	ConfidentH
 V3_22_25_T1	prediction	ConfidentH	Caries	0.512	0.488	T65	ConfidentH
 V3_22_25_T2	prediction	ConfidentH	Caries	0.508	0.492	T65	ConfidentH
 V3_22_34_T1	prediction	ConfidentH	Caries	0.534	0.466	T74	ConfidentH
-V3_22_34_T2	prediction	ConfidentH	ConfidentH	0.5	0.5	T74	ConfidentH
+V3_22_34_T2	prediction	ConfidentH	Caries	0.5	0.5	T74	ConfidentH
 V3_22_35_T1	prediction	ConfidentH	Caries	0.502	0.498	T75	ConfidentH
 V3_22_35_T2	prediction	ConfidentH	ConfidentH	0.466	0.534	T75	ConfidentH
 V3_22_44_T1	prediction	ConfidentH	Caries	0.512	0.488	T84	ConfidentH

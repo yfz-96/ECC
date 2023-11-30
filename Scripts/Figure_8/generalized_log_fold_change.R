@@ -208,3 +208,15 @@ plot <- ggplot(status_related_features_g_logfc, aes(Var2, Var1, fill = value)) +
         panel.background = element_blank())
 plot
 ggsave(filename=paste0(outpath, "/generalized_log2fold_change_of_status_related_asvs_for_ECC_diagnosis.pdf"), plot=plot, width=8.5, height=3.5)
+
+
+
+#HHRH
+data_HHRH_list<-filter_samples_by_groups_in_target_field_of_metadata(data_list$data, data_list$metadata,
+                                                                     target_field = c_category, negate=FALSE,
+                                                                     groups = c("ConfidentH", "RelativeH"))
+
+g_logfc <- g_logfc.by_datasets(data_HHRH_list$data, data_HHRH_list$metadata, 
+                               s_category, c_category, positive_class = "RelativeH")
+write.table(g_logfc, paste0(outpath, "/HHRH_generalized_logfc_by_datasets.txt"),
+            sep = "\t", quote = F,row.names = T, col.names = NA)
